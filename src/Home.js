@@ -7,7 +7,8 @@ const databaseUrl = 'http://localhost:3000'
 
 class Home extends React.Component {
   state = {
-    users: []
+    users: [],
+    subject: [],
   }
 
   componentDidMount() {
@@ -25,11 +26,17 @@ class Home extends React.Component {
       })
   }
 
+//    drawList = () => {
+//     return this.state.users.map((user, index) => {
+//       return <li key={index}>{user}</li>
+//     })
+//   }
+
   render() {
     return (
         <Container>
           <Row className="nav" >
-            <h1>LOGO</h1>
+          <a href="/" className="btn btn-home" role="button" aria-pressed="true">LOGO</a>
           </Row>
           <Row className="forum">
             <Card sm={3} style={{ width: '15rem' }}>
@@ -39,7 +46,7 @@ class Home extends React.Component {
                 <Card.Text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit,
               </Card.Text>
-              <a href="/forums/anime" className="Btn" role="button" aria-pressed="true">Lorem ipsum</a>
+              <a href="/forums/anime" className="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
               </Card.Body>
             </Card>
 
@@ -50,7 +57,7 @@ class Home extends React.Component {
                 <Card.Text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit,
               </Card.Text>
-              <a href="/forums/music" className="Btn" role="button" aria-pressed="true">Lorem ipsum</a>
+              <a href="/forums/music" className="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
               </Card.Body>
             </Card>
 
@@ -62,7 +69,7 @@ class Home extends React.Component {
                 <Card.Text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit,
               </Card.Text>
-              <a href="/forums/oraclecards" className="Btn" role="button" aria-pressed="true">Lorem ipsum</a>
+              <a href="/forums/oraclecards" className="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
               </Card.Body>
             </Card>
 
@@ -74,7 +81,7 @@ class Home extends React.Component {
                 <Card.Text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit,
               </Card.Text>
-              <a href="/forums/sports" cclassName="Btn" role="button" aria-pressed="true">Lorem ipsum</a>
+              <a href="/forums/sports" className="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
               </Card.Body>
             </Card>
             

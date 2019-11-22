@@ -25,7 +25,7 @@ class Forums extends Component {
         return (
             <Container>
                 <Row className="nav" >
-                    <h1>LOGO</h1>
+                <a href="/" className="btn btn-home" role="link" aria-pressed="true">LOGO</a>
                 </Row>
                 <Row className="forum-title" >
                     <h2>Anime Forum</h2>
@@ -42,10 +42,9 @@ class Forums extends Component {
                             <Form.Group controlId="formBasicThread">
                                 <Form.Control type="thread title" placeholder="thread title" />
                             </Form.Group>
-
                             <Button variant="primary" type="submit">
                                 Submit
-                        </Button>
+                         </Button> 
                         </Form>
                     </Col>
 
@@ -58,7 +57,7 @@ class Forums extends Component {
                                     <Card.Text>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                     </Card.Text>
-                                    <a href="/forums/music" className="Btn" role="button" aria-pressed="true">Lorem ipsum</a>
+                                    <a href="/forums/music" className="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
                                 </Card.Body>
                             </Card>
 
@@ -69,7 +68,7 @@ class Forums extends Component {
                                     <Card.Text>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                    </Card.Text>
-                                    <a href="/forums/oraclecards" className="Btn" role="button" aria-pressed="true">Lorem ipsum</a>
+                                    <a href="/forums/oraclecards" className="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
                                 </Card.Body>
                             </Card>
                         </Container>
