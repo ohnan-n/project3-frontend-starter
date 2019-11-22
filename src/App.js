@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
+import { Container, Card, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
+// import Threads from './Threads';
 // const databaseUrl = process.env.HEROKU_DB_URL || 'http://localhost:3000'
 const databaseUrl = 'https://project3-backend-test.herokuapp.com'
 
@@ -29,11 +31,23 @@ class App extends React.Component {
     console.log(this.state.users)
     console.log("Rendered")
     return (
-      <div className="App" >
-        <header className="App-header">
-          <h1>Project 3 Starter. Let's git it!</h1>
-        </header>
-      </div>
+      <Container>
+        <Row className="nav" >
+          <h1>LOGO</h1>
+        </Row>
+        <Row className="forum">
+          <Card sm={3}  style={{ width: '15rem' }}>
+            <Card.Body>
+              <Card.Title>Lorem Ipsum </Card.Title>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Text>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              </Card.Text>
+              <Button variant="primary">Lorem ipsum</Button>
+            </Card.Body>
+          </Card>
+        </Row>
+      </Container>
     );
   }
 }
