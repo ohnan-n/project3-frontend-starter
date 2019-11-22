@@ -39,7 +39,7 @@ class Home extends React.Component {
                 <Card.Text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit,
               </Card.Text>
-              <a href="/forums/anime" class="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
+              <a href="/forums/anime" className="Btn" role="button" aria-pressed="true">Lorem ipsum</a>
               </Card.Body>
             </Card>
 
@@ -50,7 +50,7 @@ class Home extends React.Component {
                 <Card.Text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit,
               </Card.Text>
-              <a href="/forums/music" class="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
+              <a href="/forums/music" className="Btn" role="button" aria-pressed="true">Lorem ipsum</a>
               </Card.Body>
             </Card>
 
@@ -62,7 +62,7 @@ class Home extends React.Component {
                 <Card.Text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit,
               </Card.Text>
-              <a href="/forums/oraclecards" class="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
+              <a href="/forums/oraclecards" className="Btn" role="button" aria-pressed="true">Lorem ipsum</a>
               </Card.Body>
             </Card>
 
@@ -74,7 +74,7 @@ class Home extends React.Component {
                 <Card.Text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit,
               </Card.Text>
-              <a href="/forums/sports" class="btn btn-primary" role="button" aria-pressed="true">Lorem ipsum</a>
+              <a href="/forums/sports" cclassName="Btn" role="button" aria-pressed="true">Lorem ipsum</a>
               </Card.Body>
             </Card>
             

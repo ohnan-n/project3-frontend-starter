@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 
 class Forums extends Component {
     constructor(props) {
         super()
-        this.state= {
+        this.state = {
             // url: ''
             check: false,
             Forum_name: props.Forum_name
@@ -11,7 +12,7 @@ class Forums extends Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
-     handleClick() {
+    handleClick() {
         //add a toggle
         console.log(this.state.check)
         this.setState({
@@ -21,13 +22,66 @@ class Forums extends Component {
     }
 
     render() {
-        return(
-            <div>
-                {this.state.Forum_name}
-                <button className="toggleButton" onClick={this.handleClick}> 
-                    {this.state.check.toString()}
-                </button>
-            </div>
+        return (
+            <Container>
+                <Row className="nav" >
+                    <h1>LOGO</h1>
+                </Row>
+                <Row className="forum-title" >
+                    <h2>Anime Forum</h2>
+                </Row>
+
+                <Row>
+                    <Col>
+                        <Form sm={2} style={{ width: '40rem' }}>
+                            <Form.Group controlId="formBasicUsername">
+                                <Form.Label>start a conversation</Form.Label>
+                                <Form.Control type="username" placeholder="username" />
+                            </Form.Group>
+
+                            <Form.Group controlId="formBasicThread">
+                                <Form.Control type="thread title" placeholder="thread title" />
+                            </Form.Group>
+
+                            <Button variant="primary" type="submit">
+                                Submit
+                        </Button>
+                        </Form>
+                    </Col>
+
+                    <Col>
+                        <Container className="side-bar">
+                            <Card sm={3} style={{ width: '15rem' }}>
+                                <Card.Body>
+                                    <Card.Title>Music </Card.Title>
+                                    <Card.Img variant="top" src="holder.js/100px180" />
+                                    <Card.Text>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                    </Card.Text>
+                                    <a href="/forums/music" className="Btn" role="button" aria-pressed="true">Lorem ipsum</a>
+                                </Card.Body>
+                            </Card>
+
+                            <Card sm={3} style={{ width: '15rem' }}>
+                                <Card.Body>
+                                    <Card.Title>Oracle Cards </Card.Title>
+                                    <Card.Img variant="top" src="holder.js/100px180" />
+                                    <Card.Text>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                   </Card.Text>
+                                    <a href="/forums/oraclecards" className="Btn" role="button" aria-pressed="true">Lorem ipsum</a>
+                                </Card.Body>
+                            </Card>
+                        </Container>
+                    </Col>
+                </Row>
+            </Container>
+            // <div>
+            //     {this.state.Forum_name}
+            //     <button className="toggleButton" onClick={this.handleClick}>
+            //         {this.state.check.toString()}
+            //     </button>
+            // </div>
         )
     }
 }
