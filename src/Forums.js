@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 
 class Forums extends Component {
-    constructor() {
+    constructor(props) {
         super()
         this.state= {
             // url: ''
             check: false,
+            Forum_name: props.Forum_name
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -22,6 +23,7 @@ class Forums extends Component {
     render() {
         return(
             <div>
+                {this.state.Forum_name}
                 <button className="toggleButton" onClick={this.handleClick}> 
                     {this.state.check.toString()}
                 </button>
