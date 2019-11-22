@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class Threads extends Component {
+class Forums extends Component {
     constructor() {
         super()
         this.state= {
@@ -19,7 +19,6 @@ class Threads extends Component {
         console.log(this.state.check)
     }
 
-
     render() {
         return(
             <div>
@@ -32,4 +31,5 @@ class Threads extends Component {
 }
 
 
-export default Threads;
+
+export default Forums;
