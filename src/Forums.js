@@ -11,10 +11,10 @@ class Forums extends Component {
         this.state = {
             // url: ''
             check: false,
-            Forum_name: props.Forum_name,
+            // Forum_name: props.Forum_name,
             triggerThread: false,
             newThread: {},
-            // newPath: '',
+            newPath: '',
         }
         this.handleClick = this.handleClick.bind(this)
         this.showThread = this.showThread.bind(this)
@@ -22,10 +22,25 @@ class Forums extends Component {
 
     }
 
+    componentDidMount() {
+        this.setForumName()
+    }
+
+    setForumName() {
+        let newPath = this.props.location.pathname.slice(8);
+        console.log('ran function')
+        console.log(this.props.Forum_name)
+        this.setState({newPath})
+    }
+
     handleChange(e){
         let newThread = {
             [e.target.name]: e.target.value
           }
+          newThread.forum = this.props.newPath
+        //   this.setState({ newThread: { ...prevState.newThread, ...newThread } 
+        // })
+        console.log(this.state.newThread.forum)
           newThread.forum = this.props.location.pathname
           console.log(newThread.forum)
           let newLocation  = newThread.forum
@@ -58,22 +73,23 @@ class Forums extends Component {
     showThread(e) {
         e.preventDefault() 
         this.setState({
-            tiggerThread: true
+            triggerThread: true
 
             
         })
     }
 
     render() {
-        // console.log(this.state.newThread)
-        // console.log(this.props)
+        console.log(this.state.newThread)
+        console.log(this.props.defineName)
+        // let newPath = 'default'
         return (
             <Container>
                 <Row className="nav" >
                 <a href="/" className="btn btn-home" role="link" aria-pressed="true">LOGO</a>
                 </Row>
                 <Row className="forum-title" >
-                    <h2>Forum</h2>
+                    <h2>{this.state.newPath} Forum</h2>
                 </Row>
 
                 <Row>
