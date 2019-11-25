@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
+import axios from 'axios';
+
+const databaseUrl = 'http://localhost:3000'
+
 
 class Forums extends Component {
     constructor(props) {
@@ -7,21 +11,55 @@ class Forums extends Component {
         this.state = {
             // url: ''
             check: false,
-            Forum_name: props.Forum_name
+            Forum_name: props.Forum_name,
+            triggerThread: false,
+            newThread: {}
         }
         this.handleClick = this.handleClick.bind(this)
+        this.showThread = this.showThread.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+
     }
 
-    handleClick() {
+    handleChange(e){
+        let newThread = {
+            [e.target.name]: e.target.value
+          }
+          newThread.forum = this.props.location.pathname
+          this.setState(prevState => (
+            { newThread: { ...prevState.newThread, ...newThread } }
+          ))
+    }
+
+    handleClick(e) {
+        e.preventDefault() 
         //add a toggle
         console.log(this.state.check)
         this.setState({
             check: !this.state.check
         })
         console.log(this.state.check)
+        axios({
+            url: `${databaseUrl}/api/forums`,
+            method: 'post'
+        })
+        .then(response => {
+            this.setState({forums: response.data.forums})
+        })
+    }
+
+    showThread(e) {
+        e.preventDefault() 
+        this.setState({
+            tiggerThread: true
+
+            
+        })
     }
 
     render() {
+        console.log(this.state.newThread)
+        console.log(this.props)
         return (
             <Container>
                 <Row className="nav" >
@@ -33,16 +71,16 @@ class Forums extends Component {
 
                 <Row>
                     <Col>
-                        <Form sm={2} style={{ width: '40rem' }}>
+                        <Form sm={2} style={{ width: '40rem' }} onChange={this.handleChange}>
                             <Form.Group controlId="formBasicUsername">
                                 <Form.Label>start a conversation</Form.Label>
-                                <Form.Control type="username" placeholder="username" />
+                                <Form.Control type="text" placeholder="username" name='username'/>
                             </Form.Group>
 
                             <Form.Group controlId="formBasicThread">
-                                <Form.Control type="thread title" placeholder="thread title" />
+                                <Form.Control type="text" placeholder="thread title" name='threadTitle'/>
                             </Form.Group>
-                            <Button variant="primary" type="submit">
+                            <Button onClick={this.showThread} variant="primary" type="submit">
                                 Submit
                          </Button> 
                         </Form>
@@ -75,6 +113,10 @@ class Forums extends Component {
                     </Col>
                 </Row>
             </Container>
+
+            // <li>
+            //     {this.props.handleClick}
+            // </li>
             // <div>
             //     {this.state.Forum_name}
             //     <button className="toggleButton" onClick={this.handleClick}>

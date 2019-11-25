@@ -9,11 +9,23 @@ class Home extends React.Component {
   state = {
     users: [],
     subject: [],
+    forums: []
   }
 
   componentDidMount() {
     this.getUsers()
+    this.getForums()
   }
+
+  getForums = () => {
+      axios({
+          url: `${databaseUrl}/api/forums`,
+          method: 'get'
+      })
+      .then(response => {
+        this.setState({forums: response.data.forums})
+      })
+  } 
 
   getUsers = () => {
     axios({
@@ -33,6 +45,7 @@ class Home extends React.Component {
 //   }
 
   render() {
+      console.log(this.state)
     return (
         <Container>
           <Row className="nav" >
