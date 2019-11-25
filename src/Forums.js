@@ -13,7 +13,8 @@ class Forums extends Component {
             check: false,
             Forum_name: props.Forum_name,
             triggerThread: false,
-            newThread: {}
+            newThread: {},
+            // newPath: '',
         }
         this.handleClick = this.handleClick.bind(this)
         this.showThread = this.showThread.bind(this)
@@ -26,6 +27,11 @@ class Forums extends Component {
             [e.target.name]: e.target.value
           }
           newThread.forum = this.props.location.pathname
+          console.log(newThread.forum)
+          let newLocation  = newThread.forum
+          console.log(newLocation)
+          let newPath = newLocation.slice(8);
+          console.log(newPath);
           this.setState(prevState => (
             { newThread: { ...prevState.newThread, ...newThread } }
           ))
@@ -46,6 +52,7 @@ class Forums extends Component {
         .then(response => {
             this.setState({forums: response.data.forums})
         })
+
     }
 
     showThread(e) {
@@ -58,15 +65,15 @@ class Forums extends Component {
     }
 
     render() {
-        console.log(this.state.newThread)
-        console.log(this.props)
+        // console.log(this.state.newThread)
+        // console.log(this.props)
         return (
             <Container>
                 <Row className="nav" >
                 <a href="/" className="btn btn-home" role="link" aria-pressed="true">LOGO</a>
                 </Row>
                 <Row className="forum-title" >
-                    <h2>Anime Forum</h2>
+                    <h2>Forum</h2>
                 </Row>
 
                 <Row>
@@ -78,7 +85,7 @@ class Forums extends Component {
                             </Form.Group>
 
                             <Form.Group controlId="formBasicThread">
-                                <Form.Control type="text" placeholder="thread title" name='threadTitle'/>
+                                <Form.Control type="text" placeholder="thread title" name='subject'/>
                             </Form.Group>
                             <Button onClick={this.showThread} variant="primary" type="submit">
                                 Submit
