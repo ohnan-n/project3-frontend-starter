@@ -1,4 +1,4 @@
-.App {
+.App{
   text-align: center;
 }
 
@@ -6,7 +6,7 @@
   height: 40vmin;
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -15,8 +15,41 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #09d3ac;
+}
+
+
+.nav {
+  margin: 5em 0em 7em 0em;
+}
+
+.forum {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.btn-home {
+  font-size: 40px;
+
+}
+
+a {
+  margin: 0.5rem;
+}
+
+.ComponentBorder {
+  border: 2px solid goldenrod;
+  padding: 2px;
+  margin: 2px;
+}
+
+.ItemBorder {
+  border: 2px solid aqua;
+  padding: 2px;
+  margin: 2px;
+  list-style: none;
 }
