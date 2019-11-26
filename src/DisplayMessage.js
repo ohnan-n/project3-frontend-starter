@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-// import { BrowserRouter as Router, Switch, Route, Link, } from "react-router-dom";
+import { Container, Button, Card, Accordion } from 'react-bootstrap';
 const databaseUrl = 'http://localhost:3000'
 
 class DisplayMessage extends React.Component {
@@ -20,11 +20,6 @@ class DisplayMessage extends React.Component {
       method: 'get'
     })
       .then(response => {
-        // console.log(response)
-        // console.log(response.data.messageItems.message)
-        // console.log(response.data.messageItems.userId)
-        // console.log(response.data.messageItems.updatedAt)
-        // console.log(response.data.messageItems.threadId)
         this.setState({
           message: response.data.messageItems.message,
           userId: response.data.messageItems.userId,
@@ -33,25 +28,30 @@ class DisplayMessage extends React.Component {
       })
   }
 
+  deleteMessage = (e) => {
+    this.props.deleteMessage(e)
+  }
+
   componentDidMount() {
     this.getOneMessage(17)
   }
 
+
+
   render() {
 
     return (
-      <div className="ComponentBorder">
-        <div className="App">
-          <h3>The DisplayMessage Component</h3>
-          <p>this.props.forumName[0] = {this.props.forumName[0]}</p>
-          <p>this.props.forumName[1] = {this.props.forumName[1]}</p>
-        </div>
-        <li>
-          <strong>this.state.message:</strong> {this.state.message} <br />
-          <strong>this.state.userId:</strong> {this.state.userId} <br />
-          <strong>this.state.updatedAt:</strong> {this.state.updatedAt}
-        </li>
-      </div>
+      <Card className="text-center">
+        <Card.Header></Card.Header>
+        <Card.Body>
+          <Card.Title>{this.props.userId}</Card.Title>
+          <Card.Text>
+            {this.props.message}
+          </Card.Text>
+          <Button onClick={e => this.deleteMessage(e)} name={this.props.messageId}>Delete Message</Button>
+        </Card.Body>
+        <Card.Footer className="text-muted">{this.props.updatedAt}</Card.Footer>
+      </Card>
     );
   }
 }

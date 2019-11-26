@@ -28,68 +28,55 @@ class Forums extends Component {
 
     setForumName() {
         let newPath = this.props.location.pathname.slice(8);
-        console.log('ran function')
-        console.log(this.props.Forum_name)
-        this.setState({newPath})
+        this.setState({ newPath })
     }
 
-    handleChange(e){
+    handleChange(e) {
         let newThread = {
             [e.target.name]: e.target.value
-          }
-          newThread.forum = this.props.newPath
-        //   this.setState({ newThread: { ...prevState.newThread, ...newThread } 
-        // })
-        console.log(this.state.newThread.forum)
-          newThread.forum = this.props.location.pathname
-          console.log(newThread.forum)
-          let newLocation  = newThread.forum
-          console.log(newLocation)
-          let newPath = newLocation.slice(8);
-          console.log(newPath);
-          this.setState(prevState => (
+        }
+        newThread.forum = this.props.newPath
+        newThread.forum = this.props.location.pathname
+        let newLocation = newThread.forum
+        let newPath = newLocation.slice(8);
+        this.setState(prevState => (
             { newThread: { ...prevState.newThread, ...newThread } }
-          ))
+        ))
     }
 
     handleClick(e) {
-        e.preventDefault() 
-        //add a toggle
-        console.log(this.state.check)
+        e.preventDefault()
         this.setState({
             check: !this.state.check
         })
-        console.log(this.state.check)
         axios({
             url: `${databaseUrl}/api/forums`,
             method: 'post'
         })
-        .then(response => {
-            this.setState({forums: response.data.forums})
-        })
+            .then(response => {
+                this.setState({ forums: response.data.forums })
+            })
 
     }
 
     showThread(e) {
-        e.preventDefault() 
+        e.preventDefault()
         this.setState({
             triggerThread: true
 
-            
+
         })
     }
 
     render() {
-        console.log(this.state.newThread)
-        console.log(this.props.defineName)
-        // let newPath = 'default'
+
         return (
             <Container>
                 <Row className="nav" >
-                <a href="/" className="btn btn-home" role="link" aria-pressed="true">LOGO</a>
+                    <a href="/" className="btn btn-home" role="link" aria-pressed="true">INTERACT</a>
                 </Row>
                 <Row className="forum-title" >
-                    <h2>{this.state.newPath} Forum</h2>
+                    <h2>{this.props.forumName} Forum</h2>
                 </Row>
 
                 <Row>
@@ -97,15 +84,15 @@ class Forums extends Component {
                         <Form sm={2} style={{ width: '40rem' }} onChange={this.handleChange}>
                             <Form.Group controlId="formBasicUsername">
                                 <Form.Label>start a conversation</Form.Label>
-                                <Form.Control type="text" placeholder="username" name='username'/>
+                                <Form.Control type="text" placeholder="username" name='username' />
                             </Form.Group>
 
                             <Form.Group controlId="formBasicThread">
-                                <Form.Control type="text" placeholder="thread title" name='subject'/>
+                                <Form.Control type="text" placeholder="thread title" name='subject' />
                             </Form.Group>
                             <Button onClick={this.showThread} variant="primary" type="submit">
                                 Submit
-                         </Button> 
+                         </Button>
                         </Form>
                     </Col>
 
@@ -136,16 +123,6 @@ class Forums extends Component {
                     </Col>
                 </Row>
             </Container>
-
-            // <li>
-            //     {this.props.handleClick}
-            // </li>
-            // <div>
-            //     {this.state.Forum_name}
-            //     <button className="toggleButton" onClick={this.handleClick}>
-            //         {this.state.check.toString()}
-            //     </button>
-            // </div>
         )
     }
 }
