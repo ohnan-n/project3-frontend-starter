@@ -17,9 +17,9 @@ class DisplayForum extends React.Component {
         return (
             <div className="ComponentBorder">
                 <div className="App">
-                    <h3>The DisplayForum Component</h3>
+                    {/* <h3>The DisplayForum Component</h3>
                     <p>this.props.forumName[0] = {this.props.forumName[0]}</p>
-                    <p>this.props.forumName[1] = {this.props.forumName[1]}</p>
+                    <p>this.props.forumName[1] = {this.props.forumName[1]}</p> */}
                     <MakeThread forumName={this.props.forumName} />
                     <DisplayThreadList forumName={this.props.forumName} />
                 </div>

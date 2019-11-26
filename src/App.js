@@ -47,8 +47,8 @@ class App extends React.Component {
               <Link to="/music">Music</Link>
               <Link to="/anime">Anime</Link>
               <Link to="/sports">Sports</Link>
-              <Link to="/message-by-id">Search By Message Id</Link>
-              <Link to="/messages-by-user">Get All Messages by a User</Link>
+              {/* <Link to="/message-by-id">Search By Message Id</Link> */}
+              {/* <Link to="/messages-by-user">Get All Messages by a User</Link> */}
               <Link to="/show-thread">Open a thread</Link>
             </nav>
             <Route exact path="/" component={Slash} />

@@ -76,8 +76,8 @@ class DisplayThreadList extends React.Component {
           <ul>
             {threadList}
           </ul>
-          {/* <DisplayThread /> */}
-          {/* <DisplayThread forumName={this.props.forumName} /> */}
+          {/* <DisplayThread />
+          <DisplayThread forumName={this.props.forumName} /> */}
         </div>
       </div>
     );
