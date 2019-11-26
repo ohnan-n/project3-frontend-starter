@@ -35,21 +35,3 @@
 .btn-home {
   font-size: 40px;
 
-}
-
-a {
-  margin: 0.5rem;
-}
-
-.ComponentBorder {
-  border: 2px solid goldenrod;
-  padding: 2px;
-  margin: 2px;
-}
-
-.ItemBorder {
-  border: 2px solid aqua;
-  padding: 2px;
-  margin: 2px;
-  list-style: none;
-}

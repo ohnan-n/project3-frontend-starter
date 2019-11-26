@@ -1,4 +1,5 @@
 import React from 'react';
+
 // import { BrowserRouter as Router, Switch, Route, Link, } from "react-router-dom";
 
 import {
@@ -17,10 +18,14 @@ import DisplayForum from './DisplayForum';
 import DisplayThreadList from './DisplayThreadList';
 import './App.css';
 
+
+
+
 // const databaseUrl = process.env.HEROKU_DB_URL || 'http://localhost:3000'
 const databaseUrl = 'http://localhost:3000'
 
 class App extends React.Component {
+
   constructor(props) {
     super();
     this.state = {
@@ -63,10 +68,11 @@ class App extends React.Component {
               <DisplayThread />
             </Route>
           </div>
-        </Router>
+      </Router>
       </div>
-    );
+      );
   }
 }
+
 
 export default App;
