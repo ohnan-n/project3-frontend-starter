@@ -42,24 +42,10 @@ class DisplayThreadList extends React.Component {
 
     return (
 
-
       <div>
         <ul>
           {threadList}
         </ul>
-
-      <div className="ComponentBorder">
-        <div className="App">
-          <h3>The DisplayThreadList Component</h3>
-          <p>this.props.forumName[0] = {this.props.forumName[0]}</p>
-          <p>this.props.forumName[1] = {this.props.forumName[1]}</p>
-          <ul>
-            {threadList}
-          </ul>
-          {/* <DisplayThread />
-          <DisplayThread forumName={this.props.forumName} /> */}
-        </div>
-
       </div>
     );
   }

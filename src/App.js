@@ -32,7 +32,6 @@ class App extends React.Component {
   render() {
 
     return (
-
       <Container>
         <Row className="nav" >
           <a href="/" className="btn btn-home" role="button" aria-pressed="true">INTERACT</a>
@@ -66,41 +65,6 @@ class App extends React.Component {
         </div>
       </Container>
     );
-
-      <div>
-        <Router basename='/'>
-          <div className="App">
-            <h1>Pop Culture Forums</h1>
-            <nav>
-              <Link to="/">slash</Link>
-              <Link to="/music">Music</Link>
-              <Link to="/anime">Anime</Link>
-              <Link to="/sports">Sports</Link>
-              {/* <Link to="/message-by-id">Search By Message Id</Link> */}
-              {/* <Link to="/messages-by-user">Get All Messages by a User</Link> */}
-              <Link to="/show-thread">Open a thread</Link>
-            </nav>
-            <Route exact path="/" component={Slash} />
-            <Route path="/music">
-              <h1>Music</h1>
-              <DisplayForum forumName={this.state.forumName[2]} />
-            </Route>
-            <Route path="/anime">
-              <h1>Anime</h1>
-              <DisplayForum forumName={this.state.forumName[0]} />
-            </Route>
-            <Route path="/sports">
-              <h1>Sports</h1>
-              <DisplayForum forumName={this.state.forumName[3]} />
-            </Route>
-            <Route path="/show-thread">
-              <DisplayThread />
-            </Route>
-          </div>
-      </Router>
-      </div>
-      );
-
   }
 }
 
