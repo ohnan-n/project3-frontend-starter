@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Container, Button, Card, Accordion } from 'react-bootstrap';
+import { Container, Button, Card, Accordion, Modal, Form } from 'react-bootstrap';
 const databaseUrl = 'http://localhost:3000'
 
 class DisplayMessage extends React.Component {
@@ -9,7 +9,9 @@ class DisplayMessage extends React.Component {
     this.state = {
       message: 'default message',
       userId: -1,
-      updatedAt: 'default time'
+      updatedAt: 'default time',
+      modalShow: false,
+      setModalShow: false
     }
     this.getOneMessage = this.getOneMessage.bind(this)
   }
@@ -41,6 +43,7 @@ class DisplayMessage extends React.Component {
   render() {
 
     return (
+
       <Card className="text-center">
         <Card.Header></Card.Header>
         <Card.Body>
@@ -55,5 +58,6 @@ class DisplayMessage extends React.Component {
     );
   }
 }
+
 
 export default DisplayMessage;

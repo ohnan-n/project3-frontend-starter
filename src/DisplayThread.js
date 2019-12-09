@@ -1,15 +1,46 @@
 import React from 'react';
 import DisplayMessage from './DisplayMessage';
 import axios from 'axios';
-import { Container, Button, Card, Accordion, Form } from 'react-bootstrap';
+import { Container, Button, Card, Accordion, InputGroup, FormControl, Form, Modal } from 'react-bootstrap';
 const databaseUrl = 'http://localhost:3000'
+
+function ShowMessageModal(props) {
+    return (
+      <Modal
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      >
+          <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+          </Modal.Title>
+          <Button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </Button>
+          </Modal.Header>
+          <Modal.Body>
+          <Form.Group>
+              <label for="message-text" class="col-form-label"></label>
+              <textarea class="form-control" id="message-text"></textarea>
+          </Form.Group>
+          </Modal.Body>
+          <Modal.Footer  className="text-muted">
+          <Button onClick={e => this.deleteMessage(e)} >Close</Button>
+          <Button type="button" class="btn btn-primary">Send message</Button>
+          </Modal.Footer>
+      </Modal>
+    );
+  }
+
 class DisplayThread extends React.Component {
     constructor(props) {
         super();
         this.state = {
             thread: {},
             messages: [],
-            newMessageString: ''
+            newMessageString: '',
+            modalShow: false,
+            setModalShow: false
         }
     }
     deleteMessage = (e) => {
@@ -91,17 +122,36 @@ class DisplayThread extends React.Component {
                             Created By: PASS USER ID
                        </Card.Text>
                         <Accordion>
+                            <Button variant="primary" onClick={() => this.setState({setModalShow: true})}>
+                                POST Message
+                            </Button>
+                            <ShowMessageModal props={this.props}
+                                show={true}
+                                //onHide={() => setModalShow(false)}
+                            />
                             <Accordion.Toggle as={Button} variant="link" eventKey="0">
                                 POST
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey="0">
                                 <Card.Body>
                                     <ul>
-                                        <form name={this.state.thread.id} onSubmit={e => this.createMessage(e)}>
-                                            <textarea id="textareabox" name="textarea1" placeholder="Start here..." onChange={(e) => this.setState({ newMessageString: e.target.value })}></textarea>
-                                            <button>Submit</button>
-                                        </form>
+                                        <form onSubmit={e => this.createMessage(e)}>
+                                        <InputGroup 
+                                        name={this.state.thread.id} 
+                                        aria-describedby="basic-addon1" 
+                                       variant="outline-secondary"
+                                        className="mb-3">
+
+                                            <FormControl
+                                                textarea id="textareabox" name="textarea1" placeholder="Start here..." onChange={(e) => this.setState({ newMessageString: e.target.value })} 
+                                            
+                                            />
+                                            <InputGroup.Prepend>
+                                            <Button type="submit">Button</Button>
+                                            </InputGroup.Prepend>
+                                        </InputGroup>
                                         {messageList}
+                                        </form>
                                     </ul>
                                 </Card.Body>
                             </Accordion.Collapse>
@@ -112,4 +162,5 @@ class DisplayThread extends React.Component {
         );
     }
 }
+
 export default DisplayThread;
